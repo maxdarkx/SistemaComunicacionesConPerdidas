@@ -1,0 +1,997 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/SlsaMaskTree/R2020a">
+  <slsa.mm.maskTree.MaskTree type="slsa.mm.maskTree.MaskTree" uuid="c1d699a0-7905-44e1-80fc-0bdc76bb8993">
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="4a1db82e-dbbc-4fbe-b62c-58e97f2694d5">
+      <blockPath>original/Transmisor/Analog Filter Design</blockPath>
+      <id>original:11</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="13700f90-5311-4086-9ce6-1a8a135a9286">
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="b95fa72b-2ea5-4db7-b751-4d321df8a0e4">
+          <name>a</name>
+          <value>AAFJTQAAAAAOAAAAsAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAQAAAAEAAAAAQAAAAAAAAAJAAAAgAAAAC4/S4qasQXB/zhdTPut/kCavfbInfdXwQAAAAAAAACA/zhdTPut/sAAAAAAAAAAAAAAAAAAAACAmr32yJ33V8GavfbInfdXQQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmr32yJ33V0EAAAAAAAAAAAAAAAAAAAAA</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="b6db05c3-31b4-4b70-8738-21920afdbe7f">
+          <name>b</name>
+          <value>AAFJTQAAAAAOAAAAUAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAQAAAABAAAAAQAAAAAAAAAJAAAAIAAAAP84XUz7rf5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="7970e8d8-c06f-4302-957c-0a5f9980d508">
+          <name>c</name>
+          <value>AAFJTQAAAAAOAAAAUAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAAEAAAAAQAAAAAAAAAJAAAAIAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAA</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="23c83214-e863-48ee-a900-703857342ef8">
+          <name>d</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAAAAA</value>
+        </cachedVariables>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="a0367d2f-681c-46f9-8f99-015ae2298ce4">
+          <expression>Butterworth</expression>
+          <isTunable>true</isTunable>
+          <name>method</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="617c88f4-3d27-48a6-87ce-c171eea77775">
+          <expression>Bandpass</expression>
+          <isTunable>true</isTunable>
+          <name>filttype</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="07d87120-f257-4838-a296-fe37c59f5d11">
+          <evaluate>true</evaluate>
+          <expression>2</expression>
+          <name>N</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="c8064d36-6d99-44af-bfd7-cb85b48f129e">
+          <evaluate>true</evaluate>
+          <expression>2*pi*(Frec_port - 2 *Ancho_banda_minimo)</expression>
+          <isTunable>true</isTunable>
+          <name>Wlo</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="50e16836-70b7-475e-8d43-55569ad62943">
+            <name>Frec_port</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="dc471405-ce65-4730-b41e-d088f146903e">
+            <name>Ancho_banda_minimo</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="4437bd9d-5fd5-4991-ac1e-34ba17c82b3f">
+          <evaluate>true</evaluate>
+          <expression>2*pi*(Frec_port + 2 *Ancho_banda_minimo)</expression>
+          <isTunable>true</isTunable>
+          <name>Whi</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="d0f99b7d-f0de-4c88-96ff-480d327d3860">
+            <name>Frec_port</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="9890cd94-8168-4ca6-9796-50e9a758215a">
+            <name>Ancho_banda_minimo</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="29249b2c-5d79-4d89-91e3-e0f54785b90c">
+          <evaluate>true</evaluate>
+          <expression>2</expression>
+          <isTunable>true</isTunable>
+          <name>Rp</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="ca73ea03-c7ef-4f8d-80f3-39fe8ff45d82">
+          <evaluate>true</evaluate>
+          <expression>40</expression>
+          <isTunable>true</isTunable>
+          <name>Rs</name>
+        </dialogParameters>
+        <initializationCode>[a,b,c,d,str]=dspblkanalog(&apos;design&apos;, method,filttype,N,Wlo,Whi,Rp,Rs);
+</initializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="6ad779ae-5490-4680-9b78-9c19039464c3">
+      <blockPath>original/Receptor/Sincronismo de símbolo/Continuous-Time VCO</blockPath>
+      <childrenIds>original:120:41</childrenIds>
+      <id>original:120</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="10a59551-bae4-4747-9b02-97f402ac12ac">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="0b213308-239b-4ef9-85b0-4dce88d79ef5">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>Ac</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="fa13e395-3407-421c-b73a-22192e473c38">
+          <evaluate>true</evaluate>
+          <expression>Rb</expression>
+          <isTunable>true</isTunable>
+          <name>Fc</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="3b6f67d5-c703-4d56-b9f8-c8d7935a630b">
+            <name>Rb</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="785adf58-ee68-4725-a641-48cda64271fa">
+          <evaluate>true</evaluate>
+          <expression>kv2</expression>
+          <isTunable>true</isTunable>
+          <name>Kc</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="e197b1d6-a991-4791-acdf-ed8918cb3109">
+            <name>kv2</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="ec13addc-02bb-4434-948e-cd643a0c9e22">
+          <evaluate>true</evaluate>
+          <expression>1.75*pi</expression>
+          <isTunable>true</isTunable>
+          <name>Ph</name>
+        </dialogParameters>
+        <initializationCode>if ((length(Ac)~=1) || (length(Fc)~=1) || (length(Ph)~=1) || (length(Kc)~=1) )
+    error(&apos;commblks:ContTimeVCO:InvalidMaskParams&apos;,...
+          &apos;Mask parameters must be scalar values.&apos;);
+end;
+pi2=2*pi;</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="52c480c5-87d5-42c6-a5d6-708530fcba93">
+      <blockPath>original/Receptor/Sincronismo de símbolo/Continuous-Time VCO/Check Signal Attributes</blockPath>
+      <id>original:120:41</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="f8e75345-25d6-432d-861f-df66894106d7">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="bfe8f137-7d9d-43f7-9cc8-b5aad1fa9375">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>SigAttribCheckMethod</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="6b9cb567-5742-4c84-9fa0-417f64fdab0b">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>Complexity</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="503c8b6d-fb92-4958-8575-dc47409f805e">
+          <evaluate>true</evaluate>
+          <expression>3</expression>
+          <name>Frame</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="0ce8010c-cad0-43b5-adc4-b1ff4958e50e">
+          <evaluate>true</evaluate>
+          <expression>2</expression>
+          <name>DimsCheckMethod</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="26f586ed-7f11-4fba-81f1-463710c58faf">
+          <evaluate>true</evaluate>
+          <expression>3</expression>
+          <name>Dimensions</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="db902cd7-9764-4cb8-bd43-577f9b2e817d">
+          <evaluate>true</evaluate>
+          <expression>2</expression>
+          <name>DatatypeCheckMethod</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="47dd24d6-6a22-4f8a-a1ff-84695416c083">
+          <evaluate>true</evaluate>
+          <expression>3</expression>
+          <name>DatatypeGeneral</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="2f23a41c-3da9-4497-b8ac-f615d8fb513b">
+          <evaluate>true</evaluate>
+          <expression>2</expression>
+          <name>DtypeFloatSpecific</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="2eacf05c-c555-4ed5-9440-99ad2769f662">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>DtypeFixedSpecific</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="f77c7b21-2db9-40e0-a2cd-cdc7b61658b2">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>DtypeIntSpecific</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="9c29d462-87d1-41c4-97aa-e24b385af768">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>SampleMode</name>
+        </dialogParameters>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>original:120</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="4d85da90-aeaa-44f2-8966-8bb4a85dac96">
+      <blockPath>original/Receptor/Sincronismo de símbolo/Monostable1</blockPath>
+      <childrenIds>original:123:20</childrenIds>
+      <childrenIds>original:123:3</childrenIds>
+      <id>original:123</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="9b3a5002-48ff-4989-8312-8ff1fdd06baa">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="795839a8-9e9e-4e58-aed5-f90ab00f30b6">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>EdgeDetect</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="fa8c22d5-55a1-4586-826d-ad1917c04181">
+          <evaluate>true</evaluate>
+          <expression>(1-b)/Rb</expression>
+          <isTunable>true</isTunable>
+          <name>t_mono</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="62f04519-1480-492c-bbf5-8d1dcd669d7f">
+            <name>b</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="e07335da-e0ba-49d6-80ed-d6bac6c27434">
+            <name>Rb</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="c8d899b8-25a7-4c0d-9f3d-a3bc0e419a22">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>ic</name>
+        </dialogParameters>
+        <initializationCode>str=sprintf(&apos;%g %c&apos;,t_mono,&apos;s&apos;);
+if (EdgeDetect ~=3)
+    x1 = (EdgeDetect -1)*10;
+    x2 = (EdgeDetect -1)*30;
+	X1=[15-8,25,25,35+8]+0; Y1=[65+x2,65+x2,95-x2,95-x2];
+	X2=[15,25,35]+0;   Y2=[75+x1,85-x1,75+x1];
+	X3=[];X4=[];Y3=[];Y4=[];	
+else
+	x1 = 10;
+	x2 = 30;
+	X1=[15,25,25,35]-14;  Y1=[65,65,95,95];
+	X2=[15,25,35]-14;    Y2=[75,85,75];
+	X3=[15,25,25,35]+14; Y3=[65+x2,65+x2,95-x2,95-x2];
+	X4=[15,25,35]+14;   Y4=[75+x1,85-x1,75+x1];
+end
+power_initmask();</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="bd762cb7-ebe9-4f88-8959-20a200b8a7ea">
+      <blockPath>original/Receptor/Sincronismo de símbolo/Monostable1/Sample &amp; Hold</blockPath>
+      <id>original:123:20</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="53e9bd95-fa9b-4af0-823f-27785724c968">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="41cf852f-5d8b-4f7e-b443-310faaecee03">
+          <evaluate>true</evaluate>
+          <expression>-1e6</expression>
+          <isTunable>true</isTunable>
+          <name>ic</name>
+        </dialogParameters>
+        <initializationCode>power_initmask();</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>original:123</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="eec20422-4ec9-42b2-a42c-12c285c7f87e">
+      <blockPath>original/Receptor/Sincronismo de símbolo/Monostable1/Edge Detector</blockPath>
+      <id>original:123:3</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="d032e238-a205-49ea-bf8e-db8af19b6de7">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="57276b4c-453f-400d-8979-9ea9c2b7a375">
+          <evaluate>true</evaluate>
+          <expression>EdgeDetect</expression>
+          <isTunable>true</isTunable>
+          <name>model</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="3c70abea-15a9-4bcb-8988-61cefdddb014">
+            <name>EdgeDetect</name>
+            <value></value>
+            <workspace>original:123</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="75d9e315-f444-452c-b393-bb749c26245c">
+          <evaluate>true</evaluate>
+          <expression>ic</expression>
+          <isTunable>true</isTunable>
+          <name>ic</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="e28271de-74d2-47fb-8843-366cce23fad3">
+            <name>ic</name>
+            <value></value>
+            <workspace>original:123</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <initializationCode>if model~=3,
+	x1 = (model -1)*20;
+    x2 = (model -1)*60;
+	X1=[5,20,20,35]+25; Y1=[20+x2,20+x2,80-x2,80-x2];
+	X2=[5,20,35]+25;    Y2=[40+x1,60-x1,40+x1];
+	X3=[];X4=[];Y3=[];Y4=[];
+else
+	x1 = 20;
+	x2 = 60;
+	X1=[5,20,20,35]+8; Y1=[20,20,80,80];
+	X2=[5,20,35]+8;    Y2=[40,60,40];
+	X3=[5,20,20,35]+53; Y3=[20+x2,20+x2,80-x2,80-x2];
+	X4=[5,20,35]+53;    Y4=[40+x1,60-x1,40+x1];
+end</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>original:123</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="0c56abeb-085b-4d64-bffc-442cceb92abc">
+      <blockPath>original/Receptor/Sincronismo de símbolo/Monostable3</blockPath>
+      <childrenIds>original:124:20</childrenIds>
+      <childrenIds>original:124:3</childrenIds>
+      <id>original:124</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="ce9cf607-3898-4356-944a-e9e24cc3e044">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="0b745f94-7e66-4fe6-8759-0077a50f5357">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>EdgeDetect</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="5dd03992-3c3b-4f2c-97f5-c7d4be08e48f">
+          <evaluate>true</evaluate>
+          <expression>b/Rb</expression>
+          <isTunable>true</isTunable>
+          <name>t_mono</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="b2eded86-bf8b-4ea2-a221-90b554bb49f4">
+            <name>b</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="349bfe9b-4ded-4321-9385-192883b52ef2">
+            <name>Rb</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="603e820c-ed23-4bf0-9703-669a9ed2f9e2">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>ic</name>
+        </dialogParameters>
+        <initializationCode>str=sprintf(&apos;%g %c&apos;,t_mono,&apos;s&apos;);
+if (EdgeDetect ~=3)
+    x1 = (EdgeDetect -1)*10;
+    x2 = (EdgeDetect -1)*30;
+	X1=[15-8,25,25,35+8]+0; Y1=[65+x2,65+x2,95-x2,95-x2];
+	X2=[15,25,35]+0;   Y2=[75+x1,85-x1,75+x1];
+	X3=[];X4=[];Y3=[];Y4=[];	
+else
+	x1 = 10;
+	x2 = 30;
+	X1=[15,25,25,35]-14;  Y1=[65,65,95,95];
+	X2=[15,25,35]-14;    Y2=[75,85,75];
+	X3=[15,25,25,35]+14; Y3=[65+x2,65+x2,95-x2,95-x2];
+	X4=[15,25,35]+14;   Y4=[75+x1,85-x1,75+x1];
+end
+power_initmask();</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="0f3ec7cf-4bad-4b06-ae53-20aa911fdab0">
+      <blockPath>original/Receptor/Sincronismo de símbolo/Monostable3/Sample &amp; Hold</blockPath>
+      <id>original:124:20</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="db582bbb-e21b-43a1-975a-e8c0b4d40f12">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="2d5705de-57d2-4c2d-86e9-d3c97faef4d8">
+          <evaluate>true</evaluate>
+          <expression>-1e6</expression>
+          <isTunable>true</isTunable>
+          <name>ic</name>
+        </dialogParameters>
+        <initializationCode>power_initmask();</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>original:124</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="77b5e352-19b0-4c4e-bc87-192d5fe5d1ef">
+      <blockPath>original/Receptor/Sincronismo de símbolo/Monostable3/Edge Detector</blockPath>
+      <id>original:124:3</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="8924d03b-169a-4bc3-93fb-0578e3677165">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="dcd039b7-e512-4485-9acb-de3a9cc15864">
+          <evaluate>true</evaluate>
+          <expression>EdgeDetect</expression>
+          <isTunable>true</isTunable>
+          <name>model</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="80324a58-a4ad-45a2-9942-a60203601805">
+            <name>EdgeDetect</name>
+            <value></value>
+            <workspace>original:124</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="e7cdd5a6-066b-4b60-8173-a21d17af36d0">
+          <evaluate>true</evaluate>
+          <expression>ic</expression>
+          <isTunable>true</isTunable>
+          <name>ic</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="0adec74f-0235-4386-99cd-37ed9d08af20">
+            <name>ic</name>
+            <value></value>
+            <workspace>original:124</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <initializationCode>if model~=3,
+	x1 = (model -1)*20;
+    x2 = (model -1)*60;
+	X1=[5,20,20,35]+25; Y1=[20+x2,20+x2,80-x2,80-x2];
+	X2=[5,20,35]+25;    Y2=[40+x1,60-x1,40+x1];
+	X3=[];X4=[];Y3=[];Y4=[];
+else
+	x1 = 20;
+	x2 = 60;
+	X1=[5,20,20,35]+8; Y1=[20,20,80,80];
+	X2=[5,20,35]+8;    Y2=[40,60,40];
+	X3=[5,20,20,35]+53; Y3=[20+x2,20+x2,80-x2,80-x2];
+	X4=[5,20,35]+53;    Y4=[40+x1,60-x1,40+x1];
+end</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>original:124</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="98d05ca2-390c-49cb-9c94-29f848fa460e">
+      <blockPath>original/Receptor/Sincronismo de símbolo/Sample and Hold</blockPath>
+      <id>original:127</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="6e760585-b4ed-4dff-8b89-dd1585bdb79a">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="2c110538-7ab1-4501-9512-d7c9aae8ed44">
+          <evaluate>true</evaluate>
+          <expression>2</expression>
+          <name>trig</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="90487da6-d36c-4447-840c-4e884afd3f1e">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>initCond</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="2829acc0-b2d5-4d05-b61d-42143f9293ea">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>latchinput</name>
+        </dialogParameters>
+        <initializationCode>switch trig
+case 1, s=&apos;rising&apos;;
+case 2, s=&apos;falling&apos;;
+case 3, s=&apos;either&apos;;
+end
+set_param([gcb &apos;/Trigger&apos;],&apos;triggertype&apos;,s);
+if (latchinput == 1)
+	set_param([gcb &apos;/In&apos;],&apos;latchinput&apos;,&apos;on&apos;);
+else
+	set_param([gcb &apos;/In&apos;],&apos;latchinput&apos;,&apos;off&apos;);
+end
+</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="c80178a4-dbaa-4db8-816e-d8c0029846d7">
+      <blockPath>original/Receptor/Sincronismo de símbolo/Sample and Hold2</blockPath>
+      <id>original:128</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="77673c15-4873-4e5d-88d7-9237686f1b9e">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="dbc198d8-3f7c-48a0-a780-a419ce293f3b">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>trig</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="af84ec23-b750-4d1f-b4ef-4ada5fb517a8">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>initCond</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="5aa9ff5f-4167-4dde-81b7-36c2b3cb879c">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>latchinput</name>
+        </dialogParameters>
+        <initializationCode>switch trig
+case 1, s=&apos;rising&apos;;
+case 2, s=&apos;falling&apos;;
+case 3, s=&apos;either&apos;;
+end
+set_param([gcb &apos;/Trigger&apos;],&apos;triggertype&apos;,s);
+if (latchinput == 1)
+	set_param([gcb &apos;/In&apos;],&apos;latchinput&apos;,&apos;on&apos;);
+else
+	set_param([gcb &apos;/In&apos;],&apos;latchinput&apos;,&apos;off&apos;);
+end
+</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="d908a477-d290-4cbc-bc1c-fe5f0b03a69d">
+      <blockPath>original/Signal From Workspace</blockPath>
+      <id>original:140</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="f6d3650a-361b-4d53-8743-d297c89e2dc2">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="9642e0ab-87f4-4b5c-9c7b-9947157cc21e">
+          <evaluate>true</evaluate>
+          <expression>TxBuffer</expression>
+          <name>X</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="e63430ff-f6e7-4227-906f-91a538c3e4d8">
+            <name>TxBuffer</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="4cb14021-d0c8-47e9-b8ca-60fed5b10905">
+          <evaluate>true</evaluate>
+          <expression>Tb</expression>
+          <name>Ts</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="421502cc-8f75-47c8-b2ab-1290895137ed">
+            <name>Tb</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="9bb11409-2e4f-4b39-92d4-f42455fae6de">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>nsamps</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="f8031af2-d730-4ead-ae88-608acffcfb2a">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>OutputAfterFinalValue</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="6068bea7-0640-4765-9725-f582e331b458">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>ignoreOrWarnInputAndFrameLengths</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="63aa1cb9-3fdc-4bc9-b92d-49758f4a1df5">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>OutputFrames</name>
+        </dialogParameters>
+        <initializationCode>[s,Ts] = dspblksfw2(&apos;init&apos;, X,Ts,nsamps);
+</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="e5d8c8cd-29cc-4532-b4db-044e66f0aaa6">
+      <blockPath>original/Receptor/Sincronismo de Trama/Monostable</blockPath>
+      <childrenIds>original:162:27:455</childrenIds>
+      <id>original:162</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="c737ebda-9899-47a5-acee-8dc72dcd588a">
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="515f335e-71fa-4ecf-8ab2-b81f966a2da0">
+          <name>model</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAAABA</value>
+        </cachedVariables>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="fc26222e-da3c-44b4-9e29-8767805eabb0">
+          <evaluate>true</evaluate>
+          <expression>2</expression>
+          <isTunable>true</isTunable>
+          <name>EdgeDetect</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="5dce2b97-cf59-40da-b19d-f9b5b6517678">
+          <evaluate>true</evaluate>
+          <expression>1000*Tb</expression>
+          <isTunable>true</isTunable>
+          <name>PulseDuration</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="962e63e3-0ad0-43e1-85e7-780aa66bf4ad">
+            <name>Tb</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="78106222-674f-415f-967a-018a1f46cd53">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>ic</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="727910cf-a0f8-4c85-84a5-10a802286ab5">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>Ts</name>
+        </dialogParameters>
+        <initializationCode>block=gcb;
+[WantBlockChoice,Ts,sps,model] = powericon(&apos;MonostableInit&apos;,block,EdgeDetect,PulseDuration,ic,Ts);
+powericon(&apos;SetInternalModels&apos;,&apos;set&apos;,block,WantBlockChoice);</initializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="7a5cf60b-0420-42e0-8b77-e53eb9a7c5c8">
+      <blockPath>original/Receptor/Sincronismo de Trama/Monostable/Model/Sample and Hold</blockPath>
+      <id>original:162:27:455</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="26d132a8-fb8f-412b-95be-844fc51aff06">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="8d93c8c3-46dd-49e8-848c-1e36891482c3">
+          <evaluate>true</evaluate>
+          <expression>-1e6</expression>
+          <isTunable>true</isTunable>
+          <name>ic</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="01180487-f819-41cd-9654-d92188ecff38">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>Ts</name>
+        </dialogParameters>
+        <initializationCode>block = gcb;
+[WantBlockChoice,Ts] = powericon(&apos;SampleAndHoldInit&apos;,block,ic,Ts);
+powericon(&apos;SetInternalModels&apos;,&apos;set&apos;,block,WantBlockChoice);</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>original:162</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="5ce79e67-6baa-4bde-9a4e-11c17fd4ebc0">
+      <blockPath>original/Triggered To Workspace</blockPath>
+      <id>original:223</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="74cbbca0-65b1-44b9-9435-971cbb815ad5">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="931949a6-a197-4c08-859c-6e85cacf97e7">
+          <evaluate>true</evaluate>
+          <expression>2</expression>
+          <name>TriggerType</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="fb82d96c-af5f-47aa-9349-7af68a5c0938">
+          <expression>Rx</expression>
+          <name>VariableName</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="ee78de32-6b8f-411f-b9f9-0361519e0cb5">
+          <evaluate>true</evaluate>
+          <expression>2000</expression>
+          <name>Buffer</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="9266743f-6ea2-4f96-a892-a185d182c6c3">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>Decimation</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="b82533ba-b89f-4646-afaa-33d94f2b81d8">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>Save2DMode</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="71a7ec92-264f-4ba7-950f-da83439cdeab">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>FixptAsFi</name>
+        </dialogParameters>
+        <initializationCode>dspblktrigtwks(&apos;init&apos;,TriggerType);</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="c7a34990-f744-43c4-ad63-9112e6bd68ea">
+      <blockPath>original/Receptor/Correlación/Analog Filter Design</blockPath>
+      <id>original:41</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="3b8ba1a8-0981-4d3c-a486-3afee355b520">
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="1d1c6b1e-c733-429e-bf96-e7fa1ca73e9c">
+          <name>a</name>
+          <value>AAFJTQAAAAAOAAAAMAIAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAgAAAAIAAAAAQAAAAAAAAAJAAAAAAIAAHmW8M8RF/7ADDldTPut7kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOOV1M+63uwAAAAAAAAAAADDldTPut7kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGCWM9lYgvnADDldTPut7kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMOV1M+63uwAAAAAAAAAAADDldTPut7kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO/caDtwC/HACjldTPut7kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMOV1M+63uwAAAAAAAAAAADjldTPut7kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJk1Jnfx8NfACjldTPut7kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOOV1M+63uwAAAAAAAAAAA</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="d2b26ed9-03a2-42c0-8e88-ee5df295e708">
+          <name>b</name>
+          <value>AAFJTQAAAAAOAAAAcAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAgAAAABAAAAAQAAAAAAAAAJAAAAQAAAAAw5XUz7re5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="507e4b06-4618-4340-9fb2-e9bc1b8574ea">
+          <name>c</name>
+          <value>AAFJTQAAAAAOAAAAcAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAAIAAAAAQAAAAAAAAAJAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA8D8=</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="1c4ba4bd-034c-400f-bd59-c4b11947fe05">
+          <name>d</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAAAAA</value>
+        </cachedVariables>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="8fb4f72a-5770-499c-8551-51f9cd7d7d51">
+          <expression>Butterworth</expression>
+          <isTunable>true</isTunable>
+          <name>method</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="9ad2a504-f6a7-48c4-addf-6bb53ed5fbf6">
+          <expression>Lowpass</expression>
+          <isTunable>true</isTunable>
+          <name>filttype</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="d90df208-cecb-4b94-9953-3cc800c8078b">
+          <evaluate>true</evaluate>
+          <expression>8</expression>
+          <name>N</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="f156085a-7ac9-4fe4-9eba-fc1ea14261c5">
+          <evaluate>true</evaluate>
+          <expression>2*pi*Rb</expression>
+          <isTunable>true</isTunable>
+          <name>Wlo</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="b04eefd6-3745-4426-a930-caea62b3b89c">
+            <name>Rb</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="952b2242-78a9-45f5-b783-e13a351bcf41">
+          <evaluate>true</evaluate>
+          <expression>80</expression>
+          <isTunable>true</isTunable>
+          <name>Whi</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="14dd61a0-57df-4381-959f-41f69d16b4d7">
+          <evaluate>true</evaluate>
+          <expression>2</expression>
+          <isTunable>true</isTunable>
+          <name>Rp</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="8e30ef78-ac4c-453d-b97c-a5aab7230081">
+          <evaluate>true</evaluate>
+          <expression>40</expression>
+          <isTunable>true</isTunable>
+          <name>Rs</name>
+        </dialogParameters>
+        <initializationCode>[a,b,c,d,str]=dspblkanalog(&apos;design&apos;, method,filttype,N,Wlo,Whi,Rp,Rs);
+</initializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="92a835ab-948e-49d6-aa1a-82f3533d48f9">
+      <blockPath>original/Receptor/Detector/Sample and Hold</blockPath>
+      <id>original:68</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="1cd3ec59-faf2-44b8-b489-ad39e844b6bd">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="42d49a62-8853-462e-a945-38acad7c32b3">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>trig</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="129f9e65-36d9-43d1-8f65-e4b9aeb4f62b">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>initCond</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="182ff74b-4019-44bc-b6b7-51d059dd1dac">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <name>latchinput</name>
+        </dialogParameters>
+        <initializationCode>switch trig
+case 1, s=&apos;rising&apos;;
+case 2, s=&apos;falling&apos;;
+case 3, s=&apos;either&apos;;
+end
+set_param([gcb &apos;/Trigger&apos;],&apos;triggertype&apos;,s);
+if (latchinput == 1)
+	set_param([gcb &apos;/In&apos;],&apos;latchinput&apos;,&apos;on&apos;);
+else
+	set_param([gcb &apos;/In&apos;],&apos;latchinput&apos;,&apos;off&apos;);
+end
+</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="6cab6ec5-01e9-4170-bc56-fad96d639040">
+      <blockPath>original/Receptor/Sincronismo de portadora/ VCO</blockPath>
+      <childrenIds>original:86:41</childrenIds>
+      <id>original:86</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="60ecc252-7af1-43df-8ffa-4b9885964483">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="f180e906-2aa9-4d8f-a387-de04ab57a951">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <isTunable>true</isTunable>
+          <name>Ac</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="abe588c3-2fd4-4293-82ec-f4361cdce567">
+          <evaluate>true</evaluate>
+          <expression>2*Frec_port</expression>
+          <isTunable>true</isTunable>
+          <name>Fc</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="b7a7db4f-f89e-433b-a3a8-66991c46a9d8">
+            <name>Frec_port</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="012c2b54-7002-4493-bd25-3f8e26e8c589">
+          <evaluate>true</evaluate>
+          <expression>Kv/(2*pi)</expression>
+          <isTunable>true</isTunable>
+          <name>Kc</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="51ae1b30-62e4-4dbc-a2ef-7fe67f6ca286">
+            <name>Kv</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="b189b679-1448-43b2-86ab-518d7cfaf670">
+          <evaluate>true</evaluate>
+          <expression>0</expression>
+          <isTunable>true</isTunable>
+          <name>Ph</name>
+        </dialogParameters>
+        <initializationCode>if ((length(Ac)~=1) || (length(Fc)~=1) || (length(Ph)~=1) || (length(Kc)~=1) )
+    error(&apos;commblks:ContTimeVCO:InvalidMaskParams&apos;,...
+          &apos;Mask parameters must be scalar values.&apos;);
+end;
+pi2=2*pi;</initializationCode>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="1be00212-c8aa-4abf-8eca-7e0e65045d0e">
+      <blockPath>original/Receptor/Sincronismo de portadora/ VCO/Check Signal Attributes</blockPath>
+      <id>original:86:41</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="ebad451f-f537-490c-829d-55ffa26c63ac">
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="43f64139-a15f-4d3f-a327-02f6073f7c13">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>SigAttribCheckMethod</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="0f449400-12ca-410f-bd21-47546b5ceab8">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>Complexity</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="dde2d1a3-580c-4058-9c7b-e08f9c008a67">
+          <evaluate>true</evaluate>
+          <expression>3</expression>
+          <name>Frame</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="3b09151c-566a-4839-b90b-808d242af7ee">
+          <evaluate>true</evaluate>
+          <expression>2</expression>
+          <name>DimsCheckMethod</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="c76a1bb3-16c0-4bfa-a182-c0f0aac909b4">
+          <evaluate>true</evaluate>
+          <expression>3</expression>
+          <name>Dimensions</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="ab0abaf4-85c9-473f-b4ee-38f604a28b1c">
+          <evaluate>true</evaluate>
+          <expression>2</expression>
+          <name>DatatypeCheckMethod</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="031328b0-2a8c-4d9b-918f-56aaa9ec0db5">
+          <evaluate>true</evaluate>
+          <expression>3</expression>
+          <name>DatatypeGeneral</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="34ce025c-fc7c-4edd-9a44-c86a5f6e391e">
+          <evaluate>true</evaluate>
+          <expression>2</expression>
+          <name>DtypeFloatSpecific</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="412e19e8-7391-4d1f-907d-0a1ccf442bb5">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>DtypeFixedSpecific</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="0e51469b-4b64-4d29-8b22-11b1c8275b5a">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>DtypeIntSpecific</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="5dfc5109-9e36-416c-8714-44e4ee47bb59">
+          <evaluate>true</evaluate>
+          <expression>1</expression>
+          <name>SampleMode</name>
+        </dialogParameters>
+        <skipInitializationCode>true</skipInitializationCode>
+      </masks>
+      <parentId>original:86</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="94874994-7e6d-4fef-b166-6cd16c37a474">
+      <blockPath>original/Receptor/Sincronismo de portadora/Analog Filter Design</blockPath>
+      <id>original:89</id>
+      <masks type="slsa.mm.maskTree.Mask" uuid="0735a913-142c-4a49-8f53-76e4cdef8ac5">
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="eef3a7f0-a9e2-40a9-b619-ee5441768300">
+          <name>a</name>
+          <value>AAFJTQAAAAAOAAAAsAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAQAAAAEAAAAAQAAAAAAAAAJAAAAgAAAAAwP3iwBHjvBrEO6D70sM0E1o4WcKtlXwQAAAAAAAACArEO6D70sM8EAAAAAAAAAAAAAAAAAAACANaOFnCrZV8E1o4WcKtlXQQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANaOFnCrZV0EAAAAAAAAAAAAAAAAAAAAA</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="de8ce4e9-d6c1-49d5-a754-e86a87ec7bb1">
+          <name>b</name>
+          <value>AAFJTQAAAAAOAAAAUAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAQAAAABAAAAAQAAAAAAAAAJAAAAIAAAAKxDug+9LDNBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="2b1739f5-5270-4cfc-9d00-2b1670201e35">
+          <name>c</name>
+          <value>AAFJTQAAAAAOAAAAUAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAAEAAAAAQAAAAAAAAAJAAAAIAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAA</value>
+        </cachedVariables>
+        <cachedVariables type="slsa.mm.maskTree.Variable" uuid="baa4bab0-177d-4b4c-99ac-a8849c87bd48">
+          <name>d</name>
+          <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAAAAA</value>
+        </cachedVariables>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="97e0efdf-7778-4fd1-ac81-156b4adcad9d">
+          <expression>Butterworth</expression>
+          <isTunable>true</isTunable>
+          <name>method</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="98376d29-ba72-4cec-b3e3-a3895e8b7956">
+          <expression>Bandpass</expression>
+          <isTunable>true</isTunable>
+          <name>filttype</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="4df7ba9f-652c-4663-b901-6908e0980d57">
+          <evaluate>true</evaluate>
+          <expression>2</expression>
+          <name>N</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="021dbc67-f4de-4056-a176-149822073fd5">
+          <evaluate>true</evaluate>
+          <expression>1.8*pi*Frec_port</expression>
+          <isTunable>true</isTunable>
+          <name>Wlo</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="84c8e9b6-071a-4af1-8b3f-1b714c925549">
+            <name>Frec_port</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="dddf6c52-20bb-4c39-a3a5-3d147a67c9c8">
+          <evaluate>true</evaluate>
+          <expression>2.2*pi*Frec_port</expression>
+          <isTunable>true</isTunable>
+          <name>Whi</name>
+          <referencedVariables type="slsa.mm.maskTree.Variable" uuid="edf8478f-35b6-406c-bf6a-dbba9e99b0eb">
+            <name>Frec_port</name>
+            <value></value>
+            <workspace>global-workspace</workspace>
+          </referencedVariables>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="f4390c19-d965-4553-9b46-8ad542da66ea">
+          <evaluate>true</evaluate>
+          <expression>2</expression>
+          <isTunable>true</isTunable>
+          <name>Rp</name>
+        </dialogParameters>
+        <dialogParameters type="slsa.mm.maskTree.DialogParameterInfo" uuid="c90b6a83-2ef0-418e-b7a3-692c7b52838e">
+          <evaluate>true</evaluate>
+          <expression>40</expression>
+          <isTunable>true</isTunable>
+          <name>Rs</name>
+        </dialogParameters>
+        <initializationCode>[a,b,c,d,str]=dspblkanalog(&apos;design&apos;, method,filttype,N,Wlo,Whi,Rp,Rs);
+</initializationCode>
+      </masks>
+      <parentId>root</parentId>
+    </maskedBlocks>
+    <maskedBlocks type="slsa.mm.maskTree.MaskedBlock" uuid="6c31711a-006f-4d37-8694-d346d886a825">
+      <childrenIds>original:11</childrenIds>
+      <childrenIds>original:120</childrenIds>
+      <childrenIds>original:123</childrenIds>
+      <childrenIds>original:124</childrenIds>
+      <childrenIds>original:127</childrenIds>
+      <childrenIds>original:128</childrenIds>
+      <childrenIds>original:140</childrenIds>
+      <childrenIds>original:162</childrenIds>
+      <childrenIds>original:223</childrenIds>
+      <childrenIds>original:41</childrenIds>
+      <childrenIds>original:68</childrenIds>
+      <childrenIds>original:86</childrenIds>
+      <childrenIds>original:89</childrenIds>
+      <id>root</id>
+    </maskedBlocks>
+    <referencedGlobalWorkspaceVariables type="slsa.mm.maskTree.Variable" uuid="51566a9f-9e88-49ff-a9d2-5612b6d93620">
+      <name>Ancho_banda_minimo</name>
+      <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAiLNA</value>
+      <workspace>global-workspace</workspace>
+    </referencedGlobalWorkspaceVariables>
+    <referencedGlobalWorkspaceVariables type="slsa.mm.maskTree.Variable" uuid="d8d862f1-85e4-4784-a21d-0b1d102b2626">
+      <name>Frec_port</name>
+      <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAACAhC5B</value>
+      <workspace>global-workspace</workspace>
+    </referencedGlobalWorkspaceVariables>
+    <referencedGlobalWorkspaceVariables type="slsa.mm.maskTree.Variable" uuid="093fa234-c201-40a1-8ada-35eb60c2a553">
+      <name>Kv</name>
+      <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAavhA</value>
+      <workspace>global-workspace</workspace>
+    </referencedGlobalWorkspaceVariables>
+    <referencedGlobalWorkspaceVariables type="slsa.mm.maskTree.Variable" uuid="abf12750-4843-4f77-a63c-6af9f385dc69">
+      <name>Rb</name>
+      <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAAAAiMNA</value>
+      <workspace>global-workspace</workspace>
+    </referencedGlobalWorkspaceVariables>
+    <referencedGlobalWorkspaceVariables type="slsa.mm.maskTree.Variable" uuid="e2555c9e-f1ed-4cc7-819e-5d58ea0eb125">
+      <name>Tb</name>
+      <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAC1DHOviNho/</value>
+      <workspace>global-workspace</workspace>
+    </referencedGlobalWorkspaceVariables>
+    <referencedGlobalWorkspaceVariables type="slsa.mm.maskTree.Variable" uuid="bded776d-5868-4d2a-b71a-e10532cb4172">
+      <name>TxBuffer</name>
+      <value>AAFJTQAAAAAOAAAAUCMAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAABkBAAAAQAAAAAAAAAJAAAAICMAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAADwPwAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAAAAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAPA/AAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8AAAAAAADwPwAAAAAAAPA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D8=</value>
+      <workspace>global-workspace</workspace>
+    </referencedGlobalWorkspaceVariables>
+    <referencedGlobalWorkspaceVariables type="slsa.mm.maskTree.Variable" uuid="206267e7-d32c-40ec-af28-20711aa14ee3">
+      <name>b</name>
+      <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAADMzMzMzM+s/</value>
+      <workspace>global-workspace</workspace>
+    </referencedGlobalWorkspaceVariables>
+    <referencedGlobalWorkspaceVariables type="slsa.mm.maskTree.Variable" uuid="eba75bd5-d528-4b46-a894-2e8706e057ee">
+      <name>kv2</name>
+      <value>AAFJTQAAAAAOAAAAOAAAAAYAAAAIAAAABgAAAAAAAAAFAAAACAAAAAEAAAABAAAAAQAAAAAAAAAJAAAACAAAAAAAAADQEmNB</value>
+      <workspace>global-workspace</workspace>
+    </referencedGlobalWorkspaceVariables>
+    <flags type="slsa.mm.maskTree.MaskTreeFlags" uuid="2d494edf-7527-4b72-b538-b1bf41f19c11"/>
+  </slsa.mm.maskTree.MaskTree>
+</MF0>
