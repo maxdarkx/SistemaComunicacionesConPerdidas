@@ -1,4 +1,0 @@
-LIBRARY ..\..\..\..\modPSK_acc.mexw64
-EXPORTS
-    mexFunction
-    mexfilerequiredapiversion

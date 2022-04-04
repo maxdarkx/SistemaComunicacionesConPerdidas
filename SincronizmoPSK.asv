@@ -70,7 +70,7 @@ TxBuffer = [dataBasura1, PBarker, dataTx, dataBasura2];
 
 %%
 Pot_Ruido = Pot_Ruido/2000000;
-varRuido = eta
+varRuido = sqrt * eta
 
 %% output a archivo
 tx = TxBuffer;
@@ -86,8 +86,8 @@ writematrix(rx,'rx.txt','Delimiter', ' ', 'WriteMode', 'overwrite');
 %% calculo datos
 tx1 = dataTx
 rx1Size = size(out.Rx1)
-rx1Size = rx1Size(1,3)
-rx1 = reshape(out.Rx(1,1,:),[1, rx1size])
+rx1Size = rx1
+rx1 = reshape(out.Rx(1,1,:),[1, datasize])
 sum(abs(tx1(1:end) - rx))
 
 
