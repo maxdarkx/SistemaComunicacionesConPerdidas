@@ -69,7 +69,7 @@ TxBuffer = [dataBasura1, PBarker, dataTx, dataBasura2];
 %verificar el dato desde 1112 hasta terminar el vector
 
 %%
-Pot_Ruido = Pot_Ruido/2000000;
+%Pot_Ruido = Pot_Ruido/2000000;
 varRuido = eta
 
 %% output a archivo
