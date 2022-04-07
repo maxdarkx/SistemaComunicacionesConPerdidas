@@ -1,17 +1,13 @@
 %% Lectura de archivo
 clear all
 close all
-archivoId = fopen('Laboratorio senales 2\Poema2.txt','r');
-formatSpec = "%c";
+archivoId = fopen('Poema2.txt','r');
+formatSpec = '%c';
 poema = fscanf(archivoId, formatSpec);
 
 %% Asignacion de variables basica
 diccionario = diccionarioEstatico(poema);
-diccionarioDinamico = strings(1,length(diccionario));
-for i = 1:length(diccionario)
-    diccionarioDinamico(i) = convertCharsToStrings(diccionario(i));
-end
-diccionario1 = diccionarioDinamico';
+diccionarioDinamico = diccionario;
 tamanoPoema = length(poema);
 tamanoDinamico = ceil(log2(length(diccionarioDinamico) - 1));
 tamanoDiccionario = length(diccionarioDinamico);
@@ -30,7 +26,7 @@ while i <= tamanoPoema
     end
     while(~condicion)
         buscado = convertCharsToStrings(poema(i:i + tamanoBusqueda));     
-        encontrado = contains(diccionarioDinamico, buscado);
+        encontrado = contains(diccionarioDinamico(:, 2), buscado)
         for j = 1:length(encontrado)
             if encontrado(j)
                 condicion = true;
@@ -41,7 +37,8 @@ while i <= tamanoPoema
         if condicion
             tamanoBusqueda = tamanoBusqueda + 1;
             tamanoBusquedaTotal = max(tamanoBusqueda, tamanoBusquedaTotal);
-            diccionarioDinamico = [diccionarioDinamico poema(i:i+tamanoBusqueda)];
+            %diccionarioDinamico = [diccionarioDinamico poema(i:i+tamanoBusqueda)];
+            diccionarioDinamico = cat(1, diccionarioDinamico, [dec2bin(i-1+length(diccionario), 6), convertCharsToStrings(poema(i:i+tamanoBusqueda))]);
             %indices = [indices; length(diccionarioDinamico)];
         else
             tamanoBusqueda = tamanoBusqueda - 1;
