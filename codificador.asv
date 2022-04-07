@@ -17,6 +17,8 @@ tamanoBusquedaTotal = 1;
 
 %% extraccion del diccionario dinamico
 i = 1;
+index = length(diccionarioDinamico);
+
 while i <= tamanoPoema
     condicion = false;
     if tamanoBusquedaTotal + i > tamanoPoema
