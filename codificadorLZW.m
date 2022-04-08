@@ -1,4 +1,4 @@
-function [codigoEnviado, diccionarioDinamico]  = codificadorLZW(texto, diccionario)
+function [codigoEnviadoString, codigoEnviado, diccionarioDinamico]  = codificadorLZW(texto, diccionario)
 
     diccionarioDinamico = diccionario;
     tamanoTexto = length(texto);
@@ -6,9 +6,10 @@ function [codigoEnviado, diccionarioDinamico]  = codificadorLZW(texto, diccionar
     tamanoBusqueda = 1;
     tamanoBusquedaTotal = 1;
     codigoEnviado = string.empty;
+    codigoEnviadoString = string.empty;
     i = 1;
     j = 1;
-    index = length(diccionarioDinamico);
+    index = length(diccionarioDinamico)-1;
     tamanoDinamico = ceil(log2(length(diccionarioDinamico) - 1));
     indexBin = dec2bin(index, tamanoDinamico);
     
@@ -21,7 +22,7 @@ function [codigoEnviado, diccionarioDinamico]  = codificadorLZW(texto, diccionar
             tamanoBusqueda = tamanoBusquedaTotal;
         end
 
-        [i tamanoBusqueda tamanoBusquedaTotal]
+        [i tamanoBusqueda tamanoBusquedaTotal];
         while(~condicion)
             buscado = convertCharsToStrings(texto(i:i + tamanoBusqueda));     
             encontrado = matches(diccionarioDinamico(:, 2), buscado);
@@ -50,5 +51,10 @@ function [codigoEnviado, diccionarioDinamico]  = codificadorLZW(texto, diccionar
             end
         end
         i = i + tamanoBusqueda;
+    end
+
+    codigoEnviadoString = codigoEnviado(1,1);
+    for i=2:length(codigoEnviado)
+        codigoEnviadoString = strcat(codigoEnviadoString, codigoEnviado(i,1));
     end
 end

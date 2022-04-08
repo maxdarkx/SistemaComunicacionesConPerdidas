@@ -5,6 +5,10 @@ archivoId = fopen('Poema2.txt','r');
 formatSpec = '%c';
 poema = fscanf(archivoId, formatSpec);
 
-%% Asignacion de variables basica
+%% codificacion del mensaje mediante LZW
 diccionario = diccionarioEstatico(poema);
-[datoTx, diccionarioDinamico] = codificadorLZW(poema, diccionario);
+[datoTxString, datoTx, diccionarioDinamico] = codificadorLZW(poema, diccionario);
+
+%% decodificacion del mensaje mediante LZW
+strlength(datoTxString)
+decodificadorLZW(diccionario, datoTxStrin)
