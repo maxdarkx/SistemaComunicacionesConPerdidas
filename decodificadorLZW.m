@@ -1,4 +1,4 @@
-function [datosRx] = decodificadorLZW(diccionario, datosTxString, diccionarioDinamicoTx, datoTx)
+function [datosRx, diccionarioDinamico] = decodificadorLZW(diccionario, datosTxString)
     
     totalBits = strlength(datosTxString);
     diccionarioDinamico = diccionario;
@@ -8,9 +8,6 @@ function [datosRx] = decodificadorLZW(diccionario, datosTxString, diccionarioDin
     datosRx = string.empty;
     index = length(diccionarioDinamico)-2;
 
-    % TODO: cuando llega al indice 61 de datosRx
-    % (extractBetween(datosTxString,365,371)), deberia usar 6 bits en vez
-    % de 7 para la lectura. Como se corrige? tarea.
     while i < totalBits
         estaEnElDiccionarioDinamico = false;
         bitsALeer = ceil(log2(length(diccionarioDinamico)));
@@ -34,7 +31,7 @@ function [datosRx] = decodificadorLZW(diccionario, datosTxString, diccionarioDin
                     k = 1;
                     while k <= cantidadCaracteresDato
                         buscado = extractBetween(dato,1,k);
-                        [posicionDiccionario, estaEnElDiccionario] = buscarDato (diccionarioDinamico, buscado);
+                        [~, estaEnElDiccionario] = buscarDato (diccionarioDinamico, buscado);
                         
                         if estaEnElDiccionario
                             k = k + 1;

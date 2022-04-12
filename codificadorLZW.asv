@@ -2,10 +2,16 @@ function [codigoEnviadoString, codigoEnviado, diccionarioDinamico]  = codificado
 
     diccionarioDinamico = diccionario;
     tamanoTexto = length(texto);
+    tamanoDiccionario = length(diccionarioDinamico);
+    tamanoBusqueda = 1;
     tamanoBusquedaTotal = 1;
     codigoEnviado = string.empty;
+    codigoEnviadoString = string.empty;
     i = 1;
+    j = 1;
     index = length(diccionarioDinamico)-1;
+    tamanoDinamico = ceil(log2(length(diccionarioDinamico) - 1));
+    indexBin = dec2bin(index, tamanoDinamico);
     
     while i <= tamanoTexto
        
@@ -30,6 +36,8 @@ function [codigoEnviadoString, codigoEnviado, diccionarioDinamico]  = codificado
                 tamanoBusqueda = tamanoBusqueda + 1;
                 tamanoBusquedaTotal = max(tamanoBusqueda, tamanoBusquedaTotal);
                 index = index + 1;
+                indexBin = dec2bin(index, tamanoDinamicoActual);
+
                 
                 if i+tamanoBusqueda < tamanoTexto
                     dato = convertCharsToStrings(texto(i:i+tamanoBusqueda));

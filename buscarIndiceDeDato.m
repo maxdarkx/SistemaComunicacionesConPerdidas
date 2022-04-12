@@ -9,7 +9,5 @@ function [posicion, condicion] = buscarIndiceDeDato (diccionario, buscado)
             posicion = j;
             break;
         end
-    end
-
-    
+    end 
 end

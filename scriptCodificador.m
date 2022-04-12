@@ -1,5 +1,5 @@
 %% Lectura de archivo
-clear all
+clearvars
 close all
 archivoId = fopen('Poema2.txt','r');
 formatSpec = '%c';
@@ -11,4 +11,4 @@ diccionario = diccionarioEstatico(poema);
 
 %% decodificacion del mensaje mediante LZW
 strlength(datoTxString)
-[datoRx] = decodificadorLZW(diccionario, datoTxString, diccionarioDinamicoTx, datoTx)
+[datoRx, diccionarioDinamicoRx] = decodificadorLZW(diccionario, datoTxString);
