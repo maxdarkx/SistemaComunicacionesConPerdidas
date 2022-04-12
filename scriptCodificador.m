@@ -13,4 +13,4 @@ diccionario = diccionarioEstatico(poema);
 strlength(datoTxString)
 [datoRx, diccionarioDinamicoRx] = decodificadorLZW(diccionario, datoTxString);
 
-%% matrices especiales
+

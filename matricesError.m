@@ -1,13 +1,14 @@
 clearvars
 
-H = [1	0	0	0	0	0	1;
+verificadoraDeParidad = [1	0	0	0	0	0	1;
      0	1	0	0	0	0	1;
      0	0	1	0	0	0	1;
      0	0	0	1	0	0	1;
      0	0	0	0	1	0	1;
      0	0	0	0	0	1	1];
 
-Ht = H'
+Ht = verificadoraDeParidad'
+matrizGeneradora = [1 1 1 1 1 1 1];
 PatronesCorregibles = [ "0000000" 
 "0000001"
 "0000010"
