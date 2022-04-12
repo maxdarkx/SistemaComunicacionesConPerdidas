@@ -3,30 +3,28 @@ function [datosRx] = decodificadorLZW(diccionario, datosTxString, diccionarioDin
     totalBits = strlength(datosTxString);
     diccionarioDinamico = diccionario;
     i = 1;
-    j = 1;
     datoAnterior = string.empty;
     datoActual = string.empty;
     datosRx = string.empty;
     index = length(diccionarioDinamico)-2;
+
+    % TODO: cuando llega al indice 61 de datosRx
+    % (extractBetween(datosTxString,365,371)), deberia usar 6 bits en vez
+    % de 7 para la lectura. Como se corrige? tarea.
     while i < totalBits
-        condicion = false;
-        bitsALeer = strlength(diccionarioDinamico(end,1));
+        estaEnElDiccionarioDinamico = false;
+        bitsALeer = ceil(log2(length(diccionarioDinamico)));
         
-        while ~condicion
+        while ~estaEnElDiccionarioDinamico
             buscado = extractBetween(datosTxString,i,i+bitsALeer-1);
-            encontrado = matches(diccionarioDinamico(:,1),buscado);
+            indiceEnteroBuscado = bin2dec(buscado);
+            [posicion, estaEnElDiccionarioDinamico] = buscarIndiceDeDato(diccionarioDinamico, indiceEnteroBuscado);
             
-            for j = 1:length(encontrado)
-                if encontrado(j)
-                    condicion = true;
-                    break;
-                end
-            end
-    
-            if condicion
+            if estaEnElDiccionarioDinamico 
                 index = index + 1;
-                datoActual = diccionarioDinamico(j,2);
+                datoActual = diccionarioDinamico(posicion,2);
                 datosRx = cat(1, datosRx, [buscado, datoActual]);
+
                 if i > 1
                     tamanoDinamico = ceil(log2(length(diccionarioDinamico) - 1));
                     indexBin = dec2bin(index, tamanoDinamico);
@@ -36,28 +34,17 @@ function [datosRx] = decodificadorLZW(diccionario, datosTxString, diccionarioDin
                     k = 1;
                     while k <= cantidadCaracteresDato
                         buscado = extractBetween(dato,1,k);
-                        encontrado = matches(diccionarioDinamico(:,2),buscado);
-                        condicionDiccionario = false;
-                        for m = 1:length(encontrado)
-                            if encontrado(m)
-                                condicionDiccionario = true;
-                                break;
-                            end
-                        end
-                        if condicionDiccionario
+                        [posicionDiccionario, estaEnElDiccionario] = buscarDato (diccionarioDinamico, buscado);
+                        
+                        if estaEnElDiccionario
                             k = k + 1;
-                        elseif k >= cantidadCaracteresDato
-                            datoBuscado = buscado;
-                            break;
                         else
                             datoBuscado = buscado;
                             break;
                         end
                     end
-                    diccionarioDinamico = cat(1, diccionarioDinamico, [indexBin, datoBuscado]);
+                    diccionarioDinamico = cat(1, diccionarioDinamico, [num2str(bin2dec(indexBin)), datoBuscado]);
                 end
-            else
-                bitsALeer = bitsALeer - 1;
             end
         end
         datoAnterior = datoActual;

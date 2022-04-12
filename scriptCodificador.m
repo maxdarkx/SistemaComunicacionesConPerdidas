@@ -11,4 +11,4 @@ diccionario = diccionarioEstatico(poema);
 
 %% decodificacion del mensaje mediante LZW
 strlength(datoTxString)
-decodificadorLZW(diccionario, datoTxString, diccionarioDinamicoTx, datoTx)
+[datoRx] = decodificadorLZW(diccionario, datoTxString, diccionarioDinamicoTx, datoTx)
